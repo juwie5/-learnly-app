@@ -25,7 +25,6 @@
     </div>
     <div class="my-2">
       <h4 class="text-center font-bold text-xl">Match the Algebraic Terms!</h4>
-
       <!-- Meaning Slots -->
       <div class="grid grid-cols-3 justify-items-center gap-4 my-3">
         <div v-for="(item, index) in shuffledWords" :key="index"
