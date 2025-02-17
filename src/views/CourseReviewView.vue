@@ -29,7 +29,11 @@
       <div class="grid grid-cols-2 lg:grid-cols-3 justify-items-center gap-4 my-3">
         <div v-for="(item, index) in shuffledWords" :key="index"
           class="border-2 border-dotted rounded-lg p-2.5 lg:w-80 lg:h-30 flex flex-col items-center justify-center text-center"
-          :class="matchedPairs[item.word] ? 'bg-green-200 border-green-400' : 'bg-[#ECE7F5] border-purple-400'"
+          :class="{
+          'bg-green-200 border-solid border-green-400 text-green-700 font-bold': matchedPairs[item.word] === 'correct',
+          'bg-red-200 border-solid border-red-400 text-red-700 font-bold': matchedPairs[item.word] === 'wrong',
+          'bg-[#ECE7F5] border-purple-400': !matchedPairs[item.word]
+         }"
           @dragover.prevent 
           @dragenter.prevent
           @drop="handleDrop($event, item.word)">
