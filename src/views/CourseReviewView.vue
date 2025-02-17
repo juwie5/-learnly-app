@@ -26,11 +26,13 @@
     <div class="my-2">
       <h4 class="text-center font-bold text-xl">Match the Algebraic Terms!</h4>
       <!-- Meaning Slots -->
-      <div class="grid grid-cols-3 justify-items-center gap-4 my-3">
+      <div class="grid grid-cols-2 lg:grid-cols-3 justify-items-center gap-4 my-3">
         <div v-for="(item, index) in shuffledWords" :key="index"
-          class="border-2 border-dotted rounded-lg p-2.5 w-full lg:w-80 lg:h-30 flex flex-col items-center justify-center text-center"
+          class="border-2 border-dotted rounded-lg p-2.5 lg:w-80 lg:h-30 flex flex-col items-center justify-center text-center"
           :class="matchedPairs[item.word] ? 'bg-green-200 border-green-400' : 'bg-[#ECE7F5] border-purple-400'"
-          @dragover.prevent @drop="handleDrop($event, item.word)">
+          @dragover.prevent 
+          @dragenter.prevent
+          @drop="handleDrop($event, item.word)">
           <p v-if="matchedPairs[item.word] === 'correct'">
             {{ item.word }} ✅
           </p>
